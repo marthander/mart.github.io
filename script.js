@@ -55,7 +55,14 @@ window.addEventListener("MetaMaskConnected", async () => {
   }
 });
  
- 
+ const connectedDiv = document.getElementById("connected");
+
+window.addEventListener("accountsChanged", async () => {
+  if (connectedDiv) {
+    connectedDiv.remove();
+  }
+});
+
  
  
  
