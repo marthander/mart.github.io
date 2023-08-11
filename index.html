@@ -131,23 +131,14 @@ window.ethereum.on('accountsChanged', (accounts) => {
 
 
 
+window.ethereum.request({
+      method: "eth_requestAccounts",
+    }).then((accounts) => {
+      // Get the user's first account
+      const account = accounts[0];
 
-const isMetamaskConnected = () => {
-  const ethereum = window.ethereum;
-  if (ethereum && ethereum.isConnected()) {
-    return true;
-  } else {
-    return false;
-  }
-};
-
-const onAccountsChanged = () => {
-  if (isMetamaskConnected()) {
-    console.log('connected');
-  }
-};
-
-window.ethereum.on('accountsChanged', onAccountsChanged);
+      // Do something with the user's account
+      console.log("The user's account address is: ", account);
 
     
     
