@@ -67,6 +67,29 @@ window.addEventListener("accountsChanged", async () => {
  
  
     });
+
+
+
+
+const isMetamaskConnected = () => {
+  const ethereum = window.ethereum;
+  if (ethereum && ethereum.isConnected()) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+const onPageLoad = () => {
+  if (isMetamaskConnected()) {
+    console.log('connected');
+  }
+};
+
+window.addEventListener('load', onPageLoad);
+
+
+	  
   } else {
     // Prompt the user to install MetaMask
     window.location.href = "https://metamask.io/";
