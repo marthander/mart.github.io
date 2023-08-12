@@ -131,14 +131,7 @@ window.ethereum.on('accountsChanged', (accounts) => {
 
 
 
-window.ethereum.request({
-      method: "eth_requestAccounts",
-    }).then((accounts) => {
-      // Get the user's first account
-      const account = accounts[0];
 
-      // Do something with the user's account
-      console.log("The user's account address is: ", account);
 
     
     
@@ -147,7 +140,14 @@ window.ethereum.request({
     // Prompt the user to install MetaMask
     window.location.href = "https://metamask.io/";
     
-    
+    window.ethereum.request({
+      method: "eth_requestAccounts",
+    }).then((accounts) => {
+      // Get the user's first account
+      const account = accounts[0];
+
+      // Do something with the user's account
+      console.log("The user's account address is: ", account);
     
   }
 });
